@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            border : 2px solid black;
+        }
+        span.first{
+            color: blue;
+        }
+        span.second{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form action="URL" method="post" class="">
+    <div class="div">
+    <div>
+<span class="first">欢迎注册会员</span>
+</div>
+<div>
+<label>手机号码：<input type="text" maxlength="11" placeholder=" 十一位手机号"><span class="second">必填</span></label>
+</div>
+<div>
+<label>创建密码：<input type="text" maxlength="8" placeholder=" 8位密码"><span class="second">必填</span></label>
+</div>
+<div><label>注册邮箱：<input type="text" placeholder=" 例如：wustzz@sina.com"><span class="second">必填</span></label></div>
+<div><label style="margin: 1rem;">验证码：<input type="text" ></label>
+    <span id="captchaCode">1234</span>
+    <button id="refreshBtn">刷新</button>
+    </div>
+<div><lable style="margin: 2rem;">性别：</lable>
+    <input type="radio" name="sex" value="male">男
+    <input type="radio" name="sex" value="female">女 
+    </div>
+<div><label style="margin: 2rem;">生日：<input type="date" name="mydate"></label></div>
+<div><label style="margin: 2rem;">年龄：<input type="text"></label></div>
+<div><label style="margin: 2rem;">籍贯：</label>
+    <select name="jiguan" size="">
+        <option value="">湖北省</option>
+        <option value="">湖南省</option>
+        <option value="">山东省</option>
+    </select>
+    <select name="jiguan" id="">
+        <option value="">武汉</option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    </div>
+    <div>个人学历：
+        <select name="xueli" id="">
+            <option value="">本科</option>
+            <option value="">专科</option>
+        </select>
+        </div>
+<div><label style="margin: 2rem;">月薪：</label>
+    <input type="range" id="salary" name="salary" min="0" max="10000" step="500" value="5000" >
+    <span id="msg"></span>
+    </div>
+<div>个人爱好：
+    <label><input type="checkbox" name="like" value="sing">唱歌</label>
+    <label><input type="checkbox" name="like" value="run">跑步</label>
+    <label><input type="checkbox" name="like" value="swim">游泳</label>
+    </div>
+    <div>个人照片：
+        <input type="file" name="myfile" accept="image/*" onchange="previewImage(event)">
+    <div id="previewContainer"></div>
+        </div>
+    <div>个人简介：
+        <br>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+    <div> <input type="submit" value="提交">
+        <input type="reset" value="重填"></div>
+    </div>
+</form>
+</body>
+<script>
+    var msg = document.getElementById("msg"); // 根据id值找到span元素
+    window.onload = function () { 
+    msg.innerHTML = document.getElementById("salary").value; // 获取区间域初始value值
+    }
+    document.getElementById("salary").onchange = function () { 
+    msg.innerHTML = this.value; // 将当前区间域的value作为span元素的内容
+    }
+    </script>
+    <script>
+        var refreshBtn = document.getElementById("refreshBtn");
+        var captchaCode = document.getElementById("captchaCode");
+    
+        refreshBtn.onclick = function () {
+            // 生成新的验证码
+            var newCode = generateCaptchaCode();
+            captchaCode.innerHTML = newCode;
+        };
+    
+        function generateCaptchaCode() {
+            // 生成新的验证码的逻辑，可以使用随机数或其他方式
+            // 这里仅为示例，生成一个随机的四位数作为验证码
+            var newCode = Math.floor(Math.random() * 9000) + 1000;
+            return newCode;
+        }
+    </script>
+    <script>
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+          
+            reader.onload = function(){
+                var previewContainer = document.getElementById("previewContainer");
+                var img = document.createElement("img");
+                img.src = reader.result;
+                img.style.maxWidth = "200px"; // 设置预览图的最大宽度
+                img.style.marginTop = "10px"; // 设置预览图的间距
+                previewContainer.appendChild(img);
+            };
+          
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</html>
+
+

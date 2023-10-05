@@ -1,0 +1,297 @@
+:root {
+    --primary-color: #31c27c;
+  }
+  
+  /* - `:root` 伪类用于定义全局变量，在这里定义了一个名为 `--primary-color` 的变量，值为 `#31c27c`，表示主要颜色为青绿色。 */
+  
+  body {
+    margin: 0;
+    background: #f5f5f5;
+    font-family: Microsoft Yahei;
+    font-size: 14px;
+    /* min-width: 1000px; */
+  }
+  /* 
+  - `body` 选择器用于设置页面的基本样式
+  - `margin: 0` 设置外边距为 0，消除页面的默认外边距
+  - `background: #f5f5f5` 设置页面的背景颜色为 `#f5f5f5`，浅灰色
+  - `font-family: Microsoft Yahei` 设置页面中的文本使用 "Microsoft Yahei" 字体
+  - `font-size: 14px` 设置文本的字体大小为 14 像素
+  - `min-width: 1000px;` 这是一个注释，将该行代码注释掉，表示页面的最小宽度为 1000 像素。注释的代码在样式表中不会生效
+  */
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  /* 
+  - `a` 选择器用于设置所有链接的样式
+  - `text-decoration: none` 去除链接的下划线
+  - `color: #000` 将链接的字体颜色设置为黑色
+  */
+  header {
+    height: 90px;
+    background: white;
+    display: flex;
+    align-items: center;
+  }
+  /* 
+  - `header` 选择器用于设置页头的样式
+  - `height: 90px` 设置页头的高度为 90 像素
+  - `background: white` 设置页头的背景颜色为白色
+  - `display: flex` 将页头内的元素以弹性盒模型进行布局
+  - `align-items: center` 设置页头内的元素在垂直方向居中对齐
+   */
+  .header-inner, main {
+    /* width: 1200px; */
+    padding: 20px;
+    margin: auto;
+  }
+  
+  /* 
+  - `.header-inner` 和 `main` 选择器分别用于设置页头内部和主要内容区的样式
+  - `padding: 20px` 设置内边距为 20 像素，给元素的内容周围留出空间
+  - `margin: auto` 设置外边距为 auto（自动），在水平方向上自动居中对齐
+  - `width: 1200px;` 这是一个注释，将该行代码注释掉，表示元素的宽度为默认宽度。注释的代码在样式表中不会生效
+   */
+  .tag-list {
+    margin-top: 50px;
+    margin-bottom: 15px;
+  }
+  
+  /* 
+  - `.tag-list` 选择器用于设置标签列表的样式
+  - `margin-top: 50px` 设置顶部外边距为 50 像素
+  - `margin-bottom: 15px` 设置底部外边距为 15 像素
+  */
+  .tag-item {
+    display: inline-block;
+    padding: 0 8px;
+    margin-right: 24px;
+    line-height: 26px;
+    color: #000;
+    text-decoration: none;
+  }
+  /* 
+  - `.tag-item` 选择器用于设置标签项的样式
+  - `display: inline-block` 将标签项显示为内联块级元素，使其在一行内水平排列
+  - `padding: 0 8px` 设置左右内边距为 8 像素，使标签项的内容与周围留出一定的间距
+  - `margin-right: 24px` 设置右外边距为 24 像素，使标签项之间有一定的间距
+  - `line-height: 26px` 设置行高为 26 像素，使文字垂直居中
+  - `color: #000` 设置标签项的字体颜色为黑色
+  - `text-decoration: none` 去除标签项的文本装饰，即去除链接的下划线
+   */
+  .tag-active {
+    background: var(--primary-color);
+    color: white;
+  }
+  /* 
+  - `.tag-active` 选择器用于设置选中的标签项的样式
+  - `background: var(--primary-color)` 将标签项的背景颜色设置为 `--primary-color` 变量的值，即青绿色
+  - `color: white` 将标签项的字体颜色设置为白色
+   */
+  .tag-item:not(.tag-active):hover {
+    color: var(--primary-color);
+  }
+  /*
+   - `.tag-item:not(.tag-active):hover` 选择器用于设置非选中的标签项的鼠标悬停样式
+  - `color: var(--primary-color)` 将标签项的字体颜色在鼠标悬停时设置为 `--primary-color` 变量的值，即青绿色
+   */
+  .nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* 
+  - `.nowrap` 选择器用于设置文本不换行的样式
+  - `white-space: nowrap` 设置文本不换行
+  - `overflow: hidden` 当文本溢出容器时，隐藏多余的部分
+  - `text-overflow: ellipsis` 当文本溢出容器时，用省略号表示被省略的文本
+   */
+  .playlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    gap: 45px 15px;
+    margin-bottom: 45px;
+  }
+  
+  /* 
+  - `.playlist` 选择器用于设置播放列表的样式
+  - `display: grid` 使用网格布局进行展示
+  - `grid-template-columns: repeat(auto-fill, minmax(200px,1fr))` 设置网格列的样式，自动填充并且最小宽度为 200px，列宽自适应，每列的宽度相等
+  - `gap: 45px 15px` 设置行列之间的间隔为 45px 和 15px
+  - `margin-bottom: 45px` 设置底部外边距为 45px
+   */
+  .cover-wrap {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* 
+  - `.cover-wrap` 选择器用于设置封面容器的样式
+  - `display: flex` 使用弹性盒模型布局进行展示
+  - `position: relative` 将封面容器设置为相对定位，则其后代元素的绝对定位将相对于该容器进行定位
+  - `overflow: hidden` 当封面图片溢出容器时，隐藏多余的部分
+  - `width: 100%` 设置封面容器的宽度为父容器的宽度
+  - `margin-bottom: 15px` 设置底部外边距为 15px
+  - `align-items: center` 设置元素在交叉轴上垂直居中对齐
+  - `justify-content: center` 设置元素在主轴上水平居中对齐
+  - `cursor: pointer` 当鼠标移到封面容器上时，将光标设置为手型表示可点击
+   */
+  .cover-img {
+    width: 100%;
+    transition: all 0.75s;
+  }
+  
+  /*
+   - `.cover-img` 选择器用于设置封面图片的样式
+  - `width: 100%` 设置封面图片的宽度为父容器的宽度
+  - `transition: all 0.75s` 设置封面图片变化的过渡效果持续时间为 0.75 秒
+  */
+  .cover-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  /*
+   - `.cover-mask` 选择器用于设置封面遮罩的样式
+  - `position: absolute` 将封面遮罩设置为绝对定位，相对于其最近的已定位（非 static）祖先元素进行定位
+  - `left: 0`、`top: 0`、`right: 0`、`bottom: 0` 将封面遮罩的边缘与其容器的边缘对齐，实现充满整个封面容器
+  - `background: #000` 将封面遮罩的背景颜色设置为黑色
+  - `opacity: 0` 将封面遮罩的透明度设置为 0，初始状态下不可见
+  - `transition: all 0.5s` 设置封面遮罩样式变化的过渡效果持续时间为 0.5 秒
+   */
+  .cover-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -35px;
+    margin-top: -35px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.5s;
+  }
+  
+  /* 
+  - `.cover-play` 选择器用于设置播放图标的样式
+  - `position: absolute` 将播放图标设置为绝对定位，相对于其最近的已定位（非 static）祖先元素进行定位
+  - `left: 50%`、`top: 50%` 将播放图标的左上角与封面容器的中心点对齐
+  - `margin-left: -35px`、`margin-top: -35px` 将播放图标的左上角向左上方移动 35px，实现图标居中显示
+  - `opacity: 0` 将播放图标的透明度设置为 0，初始状态下不可见
+  - `transform: scale(0.7)` 缩小播放图标的尺寸为 0.7 倍
+  - `transition: all 0.5s` 设置播放图标样式变化的过渡效果持续时间为 0.5 秒
+  */
+  .cover-wrap:hover .cover-mask {
+    opacity: 0.2;
+  }
+  
+  /* - 当鼠标悬停在封面容器上时，`.cover-mask` 的透明度从 0 变为 0.2，实现封面遮罩的透明度变化效果 */
+  
+  .cover-wrap:hover .cover-play {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* - 当鼠标悬停在封面容器上时，`.cover-play` 的透明度从 0 变为 1，缩放从 0.7 倍变为 1 倍，实现播放图标的显示和缩放效果 */
+  .cover-wrap:hover .cover-img {
+    transform: scale(1.07);
+  }
+  
+  /* - 当鼠标悬停在封面容器上时，`.cover-img` 的缩放比例从 1 倍变为 1.07 倍，实现封面图片的放大效果 */
+  
+  .album-title:hover {
+    color: var(--primary-color);
+  }
+  
+  /* - 当鼠标悬停在 `.album-title` 元素（专辑标题）上时，将字体颜色设置为 `--primary-color` 变量的值，即青绿色 */
+  
+  .album-author {
+    color: #999;
+    line-height: 1.6;
+  }
+  
+  /* 
+  - `.album-author` 选择器用于设置专辑作者的样式
+  - `color: #999` 设置专辑作者的字体颜色为灰色
+  - `line-height: 1.6` 设置行高为字体大小的 1.6 倍
+   */
+  
+  .album-author:hover {
+    color: var(--primary-color);
+  }
+  /* - 当鼠标悬停在 `.album-author` 元素（专辑作者）上时，将字体颜色设置为 `--primary-color` 变量的值，即青绿色 */
+  
+  .album-time {
+    color: #999;
+  }
+  
+  /*
+   - `.album-time` 选择器用于设置专辑时间的样式
+  - `color: #999` 设置专辑时间的字体颜色为灰色
+   */
+  
+  .page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 
+  - `.page` 选择器用于设置分页容器的样式
+  - `display: flex` 使用弹性盒模型布局进行展示
+  - `align-items: center` 设置元素在交叉轴上垂直居中对齐
+  - `justify-content: center` 设置元素在主轴上水平居中对齐
+   */
+  
+  .page-item {
+    display: inline-block;
+    color: #a2a2a2;
+    line-height: 50px;
+    padding: 0 20px;
+    margin: 10px;
+    font-size: 16px;
+  }
+  
+  /* 
+  - `.page-item` 选择器用于设置分页项的样式
+  - `display: inline-block` 将分页项显示为内联块级元素，使其在一行内水平排列
+  - `color: #a2a2a2` 设置分页项的字体颜色为浅灰色
+  - `line-height: 50px` 设置行高为 50 像素，使文字垂直居中
+  - `padding: 0 20px` 设置左右内边距为 20 像素，给分页项的内容周围留出空间
+  - `margin: 10px` 设置上下外边距为 10 像素，给分页项之间留出间距
+  - `font-size: 16px` 设置字体大小为 16 像素
+   */
+  
+  .page-current,
+  .page-item:not(.page-more):hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /*
+   - `.page-current` 选择器用于设置当前页码项的样式
+  - `.page-item:not(.page-more):hover` 选择器用于设置非更多按钮的悬停样式
+  - `background: var(--primary-color)` 将当前页码项和非更多按钮的背景颜色设置为 `--primary-color` 变量的值，即青绿色
+  - `color: white` 将当前页码项和非更多按钮的字体颜色设置为白色
+   */
+  
+  footer {
+    margin-top: 60px;
+    background: #333;
+    height: 200px;
+  }
+  /* 
+  - `footer` 选择器用于设置页面底部的样式
+  - `margin-top: 60px` 设置顶部外边距为 60 像素
+  - `background: #333` 设置底部的背景颜色为深灰色
+  - `height: 200px` 设置底部的高度为 200 像素
+   */
